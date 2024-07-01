@@ -18,14 +18,20 @@ function criarElementoTarefa(tarefa) {
     `
 
     const paragrafo = document.createElement('p')
-    paragrafo.classList.add('app__section-task-list-item-description')
     paragrafo.textContent = tarefa.descricao
+    paragrafo.classList.add('app__section-task-list-item-description')
 
     const botao = document.createElement('button')
     botao.classList.add('app_button-edit')
-    const imagemBotao = document.createElement('img')
 
+    botao.onclick = () => {
+        const novaDescrcao = prompt('Qual é o novo nome da tarefa?')
+        paragrafo.textContent = novaDescrcao
+    }
+
+    const imagemBotao = document.createElement('img')
     imagemBotao.setAttribute('src', '/imagens/edit.png')
+    botao.append(imagemBotao)
 
     li.append(svg)
     li.append(paragrafo)
